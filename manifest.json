@@ -1,0 +1,17 @@
+{
+    "name": "Save Infos",
+    "description": "Extensão para salvar os usuário/mensagens de uma sala do meet.",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["scripting"],
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://meet.google.com/"],
+            "css": ["content/style.css"],
+            "js": ["content/content.js"]
+        }
+    ]
+}
