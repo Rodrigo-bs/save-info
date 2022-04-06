@@ -1,0 +1,69 @@
+.container-get_infos {
+    box-sizing: border-box;
+    width: 300px;
+    top: 0;
+    position: absolute;
+    z-index: 999;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    animation: .2s linear animation-pane_close forwards;
+}
+
+.container-get_infos input {
+    width: 100%;
+    font-size: 18px;
+    padding: 2px;
+    border: 1px solid #333;
+    display: block;
+}
+
+.container-get_infos button.button-get_infos {
+    margin-top: 10px;
+    display: block;
+    font-size: 16px;
+    padding: 10px 5px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.container-get_infos button.button-close {
+    position: absolute;
+    right: -30px;
+    top: 10px;
+    background: #e54;
+    color: #fff;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    cursor: pointer;
+    border: none;
+}
+
+.container-get_infos.active button.button-close {
+    transform: rotate(540deg);
+    transition: .3s ease;
+}
+
+.active {
+    animation: .2s linear animation-pane_open forwards;
+}
+
+@keyframes animation-pane_open {
+    0% {
+        left: -300px;
+    } 100% {
+        left: 0px;
+    }
+}
+
+@keyframes animation-pane_close {
+    0% {
+        left: 0px;
+    } 100% {
+        left: -300px;
+    }
+}
