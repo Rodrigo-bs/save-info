@@ -1,6 +1,14 @@
 class InsertPanel {
+    insertValue(element) {
+        if (localStorage.getItem('materia')){
+            element.querySelector('.input-get_infos').value = localStorage.getItem('materia')
+        }
+
+        return element;
+    }
+
     insertInToBody(element) {
-        document.body.appendChild(element);
+        document.body.appendChild(this.insertValue(element));
     }
 
     insertElements(container, elements) {
@@ -39,6 +47,7 @@ class InsertPanel {
     }
 
     togglePanel(event) {
+        document.querySelector("#ow3 > div.T4LgNb > div > div:nth-child(9) > div.crqnQb > div.UnvNgf.Sdwpn.P9KVBf > div.jsNRx > div.Ok4Bg > div > div > div:nth-child(2) > span > button").click();
         const container = document.querySelector('.container-get_infos');
         container.classList.toggle('active');
     }
@@ -57,6 +66,7 @@ class CreateJson {
     constructor(materia) {
         this.usersContainer = document.querySelectorAll('.cxdMu');
         this.messagesContainer = document.querySelectorAll('.GDhqjd');
+        this.materia = materia;
         this.data = [];
 
         this.data.push(materia);
@@ -89,7 +99,7 @@ class CreateJson {
     getUsers() {
         let data = [];
 
-        this.usersContainer.forEach(user => {
+        this.usersContainer.forEach(user => {   
             let userArray = {
                 name: user.querySelector('.zWGUib').innerText,
                 img: user.querySelector('.KjWwNd').src
@@ -125,7 +135,14 @@ class CreateJson {
         this.downloadJson(JSON.stringify(this.data), time + '.json', 'text/plain');
     }
 
+    setMateria() {
+        if (this.materia != null) {
+            localStorage.setItem('materia', this.materia);
+        }
+    }
+
     init() {
+        this.setMateria();
         this.getDataMessages();
     }
 }
